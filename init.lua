@@ -594,10 +594,11 @@ local servers = {
 require('conform').setup({
   format_on_save = {
     timeout_ms = 500,
-    lsp_fallback = true
+    lsp_fallback = true,
   },
   formatters_by_ft = {
-    typescript = { { 'prettierd', 'prettier' } }
+    lua = { { 'stylelua' } },
+    typescript = { { 'prettierd', 'prettier' } },
   }
 })
 
@@ -683,46 +684,46 @@ cmp.setup {
 local opts = { noremap = true, silent = true }
 
 -- select all
-vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
 
 -- create a split of current screen
-vim.keymap.set("n", "ss", ":split<Return>", opts)
-vim.keymap.set("n", "sv", ":vsplit<Return>", opts)
+vim.keymap.set('n', 'ss', ':split<Return>', opts)
+vim.keymap.set('n', 'sv', ':vsplit<Return>', opts)
 
 -- additional keymaps for switching tabs
-vim.keymap.set("n", "<tab>", "gt", opts)
-vim.keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+vim.keymap.set('n', '<tab>', 'gt', opts)
+vim.keymap.set('n', '<s-tab>', ':tabprev<Return>', opts)
 
 -- move between windows faster
-vim.keymap.set("n", "sh", "<C-w>h", opts)
-vim.keymap.set("n", "sj", "<C-w>j", opts)
-vim.keymap.set("n", "sk", "<C-w>k", opts)
-vim.keymap.set("n", "sl", "<C-w>l", opts)
+vim.keymap.set('n', 'sh', '<C-w>h', opts)
+vim.keymap.set('n', 'sj', '<C-w>j', opts)
+vim.keymap.set('n', 'sk', '<C-w>k', opts)
+vim.keymap.set('n', 'sl', '<C-w>l', opts)
 
 -- easily create a new tab
-vim.keymap.set("n", "st", ":tab new<Return>", opts)
+vim.keymap.set('n', 'st', ':tab new<Return>', opts)
 
 -- easily reach explore
-vim.keymap.set("n", "m", ":Explore<Return>", opts)
+vim.keymap.set('n', 'm', ':Explore<Return>', opts)
 
 -- [[Configure Harpoon]]
-local harpoon = require("harpoon")
+local harpoon = require('harpoon')
 
 -- REQUIRED
 harpoon:setup()
 -- REQUIRED
 
 --vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
-vim.keymap.set("n", "<C-1>", function() harpoon:list():append() end)
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set('n', '<C-1>', function() harpoon:list():append() end)
+vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 --vim.keymap.set("n", "<C-<Tab>>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
-vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+vim.keymap.set('n', '<C-h>', function() harpoon:list():select(1) end)
 -- temp disable this harpoon keymap, as it conflicts with keymap for going back the stack
 -- vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+vim.keymap.set('n', '<C-n>', function() harpoon:list():select(3) end)
+vim.keymap.set('n', '<C-s>', function() harpoon:list():select(4) end)
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+vim.keymap.set('n', '<C-S-P>', function() harpoon:list():prev() end)
+vim.keymap.set('n', '<C-S-N>', function() harpoon:list():next() end)
