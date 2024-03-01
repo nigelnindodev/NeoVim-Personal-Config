@@ -90,7 +90,7 @@ require('lazy').setup({
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       {
         'j-hui/fidget.nvim',
-        opts = {}
+        opts = {},
       },
 
       -- Additional lua configuration, makes nvim stuff amazing!
@@ -118,7 +118,7 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   {
     'folke/which-key.nvim',
-    opts = {}
+    opts = {},
   },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -237,7 +237,10 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',  opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+  },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -605,7 +608,7 @@ require('conform').setup {
   formatters_by_ft = {
     lua = { { 'stylelua' } },
     typescript = { { 'prettierd', 'prettier' } },
-  }
+  },
 }
 
 -- Setup neovim lua configuration
