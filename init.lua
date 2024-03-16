@@ -721,31 +721,30 @@ local harpoon = require 'harpoon'
 harpoon:setup()
 -- REQUIRED
 
---vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
-vim.keymap.set('n', '<C-1>', function()
+-- mark a file to harpoon
+vim.keymap.set('n', '<leader>hx', function()
   harpoon:list():append()
-end)
-vim.keymap.set('n', '<C-e>', function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
---vim.keymap.set("n", "<C-<Tab>>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+end, { desc = 'harpoon: mark current buffer' })
 
-vim.keymap.set('n', '<C-h>', function()
-  harpoon:list():select(1)
-end)
--- temp disable this harpoon keymap, as it conflicts with keymap for going back the stack
--- vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
-vim.keymap.set('n', '<C-n>', function()
-  harpoon:list():select(3)
-end)
+-- list marked files
+vim.keymap.set('n', '<leader>hl', function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = 'harpoon: quick menu' })
+
+-- Go to the first marked file
 vim.keymap.set('n', '<C-s>', function()
-  harpoon:list():select(4)
-end)
+  harpoon:list():select(1)
+end, { desc = 'harpoon: buffer[1]' })
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set('n', '<C-S-P>', function()
+vim.keymap.set('n', '<leader>ht', function()
   harpoon:list():prev()
-end)
-vim.keymap.set('n', '<C-S-N>', function()
+end, { desc = 'harpoon: previous buffer' })
+vim.keymap.set('n', '<leader>hy', function()
   harpoon:list():next()
-end)
+end, { desc = 'harpoon: next buffer' })
+
+-- Clear list of marked files
+vim.keymap.set('n', '<leader>hz', function()
+  harpoon:list():clear()
+end, { desc = 'harpoon: clear marked buffers' })
