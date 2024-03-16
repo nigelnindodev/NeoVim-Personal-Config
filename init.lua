@@ -745,6 +745,6 @@ vim.keymap.set('n', '<leader>hy', function()
 end, { desc = 'harpoon: next buffer' })
 
 -- Clear list of marked files
-vim.keymap.set("n", "<leader>hz", function()
+vim.keymap.set('n', '<leader>hz', function()
   harpoon:list():clear()
 end, { desc = 'harpoon: clear marked buffers' })
