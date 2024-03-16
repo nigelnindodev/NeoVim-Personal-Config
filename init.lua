@@ -722,7 +722,7 @@ harpoon:setup()
 -- REQUIRED
 
 -- mark a file to harpoon
-vim.keymap.set("n", '<leader>hx', function()
+vim.keymap.set('n', '<leader>hx', function()
   harpoon:list():append()
 end, { desc = 'harpoon: mark current buffer' })
 
