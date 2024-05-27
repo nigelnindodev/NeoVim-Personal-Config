@@ -209,7 +209,7 @@ require('lazy').setup({
     name = 'catppuccin',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'catppuccin-latte'
+      vim.cmd.colorscheme 'catppuccin-mocha'
     end,
   },
 
@@ -607,7 +607,9 @@ require('conform').setup {
   },
   formatters_by_ft = {
     lua = { { 'stylelua' } },
-    typescript = { { 'prettierd', 'prettier' } },
+    javascript = { { 'prettier' } },
+    typescript = { { 'prettier' } },
+    python = { { 'isort', 'black' } },
   },
 }
 
@@ -748,3 +750,5 @@ end, { desc = 'harpoon: next buffer' })
 vim.keymap.set('n', '<leader>hz', function()
   harpoon:list():clear()
 end, { desc = 'harpoon: clear marked buffers' })
+
+-- [[Configure tmux]]
