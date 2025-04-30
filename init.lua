@@ -570,7 +570,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'horizon',
         component_separators = '|',
         section_separators = '',
       },
@@ -791,14 +791,16 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
+    build = "TSUpdate",
+
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'html' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'html', 'java' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
 
     autotag = {
-      eable = true,
+      enable = false,
     },
 
     highlight = { enable = true },
@@ -1070,6 +1072,10 @@ vim.keymap.set('n', 'st', ':tab new<Return>', opts)
 -- easily reach explore
 vim.keymap.set('n', 'm', ':Explore<Return>', opts)
 
+-- show all function definitions in a specific file
+vim.keymap.set('n', '<leader>fs', '<cmd>Telescope lsp_document_symbols symbols=function<CR>',
+  { desc = 'Show file function definitions' })
+
 -- [[Configure Harpoon]]
 local harpoon = require 'harpoon'
 
@@ -1079,7 +1085,7 @@ harpoon:setup()
 
 -- mark a file to harpoon
 vim.keymap.set('n', '<leader>hx', function()
-  harpoon:list():append()
+  harpoon:list():add()
 end, { desc = 'harpoon: mark current buffer' })
 
 -- list marked files
