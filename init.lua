@@ -1113,10 +1113,10 @@ vim.keymap.set('n', '<C-s>', function()
 end, { desc = 'harpoon: buffer[1]' })
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set('n', '<leader>ht', function()
+vim.keymap.set('n', '<C-t>', function()
   harpoon:list():prev()
 end, { desc = 'harpoon: previous buffer' })
-vim.keymap.set('n', '<leader>hy', function()
+vim.keymap.set('n', '<C-y>', function()
   harpoon:list():next()
 end, { desc = 'harpoon: next buffer' })
 
